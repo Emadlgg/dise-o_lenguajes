@@ -1,0 +1,28 @@
+public class PotionBrewer {
+
+    private static final double HERB_PRICE = 5.50;
+    private static final int MUSHROOM_PRICE = 3;
+
+    private String brewerName;
+    private double goldCoins;
+    private int potionsBrewed;
+
+    public PotionBrewer(String name, double startingGold) {
+        this.brewerName = name;
+        this.goldCoins = startingGold;
+        this.potionsBrewed = 0;
+    }
+
+    public void brewHealthPotion(int herbCount, int mushroomCount) {
+        double totalCost = (herbCount * HERB_PRICE) + 
+                           (mushroomCount * MUSHROOM_PRICE);
+
+        if (totalCost <= this.goldCoins) {
+            this.goldCoins -= totalCost;
+            this.potionsBrewed++;
+            System.out.println("Success!");
+        } else {
+            System.out.println("Not enough gold");
+        }
+    }
+}
